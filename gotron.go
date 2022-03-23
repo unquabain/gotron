@@ -6,7 +6,7 @@ import (
 	"encoding/base64"
 	"fmt"
 	"github.com/webview/webview"
-  "gotron/back-end/store"
+  "gotron/store"
 	"os"
 )
 

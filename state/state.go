@@ -3,7 +3,7 @@
 package state
 
 import (
-	"gotron/back-end/action"
+	"gotron/action"
 )
 
 type State interface {

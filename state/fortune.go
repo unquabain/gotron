@@ -4,7 +4,7 @@ package state
 
 import (
   "os/exec"
-  "gotron/back-end/action"
+  "gotron/action"
   "fmt"
 )
 

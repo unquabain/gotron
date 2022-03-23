@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/webview/webview"
-	"gotron/back-end/action"
-	"gotron/back-end/state"
+	"gotron/action"
+	"gotron/state"
   "log"
   "os"
 )
