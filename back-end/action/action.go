@@ -9,6 +9,7 @@ type ActionName string
 const (
 	SessionUpdateUsername ActionName = `SESSION.UPDATE_USERNAME`
 	SessionNavigate                  = `SESSION.NAVIGATE`
+  FortuneGenerate = `VIEWS.FORTUNE.GENERATE`
 )
 
 type Action struct {

@@ -6,6 +6,7 @@ GOSRC= \
 	back-end/fs.go \
 	back-end/gotron.go \
 	back-end/state/state.go \
+	back-end/state/fortune.go \
 	back-end/store/store.go
 
 bin/gotron: $(GOSRC) $(JSSRC) $(CSSSRC) back-end/assets/index.html

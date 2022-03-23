@@ -82,6 +82,6 @@ func NewAppState() *AppState {
 	return &AppState{
     Session: &SessionState{ Username: `Trevor`, NavPath: `/` },
 		Data:    make(States),
-		Views:   make(States),
+    Views:   States{`fortune`: FortuneState(``)},
 	}
 }

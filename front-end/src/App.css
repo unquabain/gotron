@@ -21,6 +21,10 @@ nav .gotron-link.active {
   font-weight: bold;
 }
 
+nav .gotron-link.right {
+  float: right;
+}
+
 /* 
 =====================================================
 	Dynamic Displays

@@ -6,3 +6,5 @@ export const viewsSelector = state => (state || {}).views || {}
 
 export const usernameSelector = createSelector(sessionSelector, session => session.username)
 export const navPathSelector = createSelector(sessionSelector, session => session.navPath)
+
+export const fortuneSelector = createSelector(viewsSelector, views => views.fortune || '')
