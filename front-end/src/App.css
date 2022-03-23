@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* 
+=====================================================
+	Layout & Framework
+===================================================== */
+
+div.App {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  height: calc(100% - 80px);
+  width: calc(100% - 80px);
+}
+
+nav .gotron-link {
+  display: inline-block;
+  margin-right: 2em;
+}
+
+nav .gotron-link.active {
+  font-weight: bold;
+}
+
+/* 
+=====================================================
+	Dynamic Displays
+===================================================== */
