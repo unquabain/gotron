@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
-import actions from './actions'
-import { navPathSelector } from './selectors'
+import actions from '../actions'
+import { navPathSelector } from '../selectors'
 
 export function Route(props) {
   const navPath = useSelector(navPathSelector)
@@ -27,6 +27,6 @@ export function Link(props) {
   }
 
   return (
-    <a className={classNames.join(' ')} href="#" onClick={()=>dispatch(navigate(path))}>{children}</a>
+    <button type="button" className={classNames.join(' ')} href="#" onClick={()=>dispatch(navigate(path))}>{children}</button>
   )
 }

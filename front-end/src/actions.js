@@ -1,4 +1,4 @@
-export default {
+const actions = {
   session: {
     updateUsername: un => ({ action: 'SESSION.UPDATE_USERNAME', payload: un }),
     navigate: path => ({ action: 'SESSION.NAVIGATE', payload: path })
@@ -9,3 +9,4 @@ export default {
     }
   }
 }
+export default actions

@@ -28,7 +28,7 @@ class GotronStore {
   dispatch = (action) => window.gotronDispatch(action)
 
   replaceReducer = (nextReducer) => {
-    throw('replaceReducer is not implemented')
+    throw new Error('replaceReducer is not implemented')
   }
 }
 

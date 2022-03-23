@@ -1,9 +1,8 @@
-import logo from './logo.svg'
 import './App.css'
 import { useSelector, useDispatch } from 'react-redux'
 import actions from './actions'
 import { usernameSelector, fortuneSelector } from './selectors'
-import { Route, Link } from './gotronRouter'
+import { Route, Link } from './gotron/router'
 
 function App() {
   const name = useSelector(usernameSelector)

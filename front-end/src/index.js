@@ -4,7 +4,7 @@ import './index.css'
 import App from './App'
 import { Provider } from 'react-redux'
 
-import store from './gotronStore'
+import store from './gotron/store'
 
 document.addEventListener('DOMContentLoaded', (event) => {
   ReactDOM.render(
