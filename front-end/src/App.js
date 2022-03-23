@@ -3,12 +3,13 @@ import './App.css'
 import { useSelector, useDispatch } from 'react-redux'
 import actions from './actions'
 import { usernameSelector, fortuneSelector } from './selectors'
-import { Route, Link } from './gotron_router'
+import { Route, Link } from './gotronRouter'
 
 function App() {
   const name = useSelector(usernameSelector)
   const fortune = useSelector(fortuneSelector)
   const dispatch = useDispatch()
+  const { session: { updateUsername }, views: { fortune: { generate: generateFortune } } } = actions
   return (
     <div className="App">
       <nav>
@@ -53,12 +54,12 @@ function App() {
           <input
             type="text"
             defaultValue={name}
-            onChange={({target: { value } }) => dispatch(actions.session.updateUsername(value))}
+            onChange={({target: { value } }) => dispatch(updateUsername(value))}
           />
           </Route>
           <Route path="/fortune">
           <pre>{fortune}</pre>
-          <button type="button" className={'btn'} onClick={()=>dispatch(actions.views.fortune.generate())}>Generate</button>
+          <button type="button" className={'btn'} onClick={()=>dispatch(generateFortune())}>Generate</button>
           </Route>
 
     </div>
