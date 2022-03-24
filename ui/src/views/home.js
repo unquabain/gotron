@@ -1,5 +1,6 @@
+import View from './view'
 function Home() {
-  return (<div>
+  return (<View>
     <h1>Welcome to the GoTron example application</h1>
     <p>GoTron is an experimental project to use React technologies to provide an
     interface to a Go application without opening ports on the target computer.
@@ -29,6 +30,6 @@ function Home() {
     Each of these sections should be statically-typed on the Go side for consistency and
     compile-time provability.
     </p>
-  </div>)
+  </View>)
 }
 export default Home

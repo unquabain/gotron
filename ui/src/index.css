@@ -138,3 +138,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  border: none;
+  padding: 1ex 1em;
+  background-color: #6200EE;
+  color: white;
+  box-shadow: 0 0 8px #DDDDDD, 0 4px 4px #DDDDDD;
+  border-radius: 4px;
+}
+
+button:hover {
+  box-shadow: 0 0 10px #DDDDDD, 0 6px 6px #DDDDDD;
+}
+
+button:active {
+  box-shadow: 0 0 1px #DDDDDD, 0 2px 2px #DDDDDD;
+}
+
+ul, li {
+  list-style-position: inside;
+  padding-left: 1em;
+  text-indent: -1em;
+}

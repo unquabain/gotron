@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { usernameSelector } from '../selectors'
 import actions from '../actions'
+import View from './view'
+
 function Session() {
   const name = useSelector(usernameSelector)
   const dispatch = useDispatch()
   const { session: { updateUsername } } = actions
-  return (<div>
+  return (<View>
     <h1>{name}</h1>
     <p>
     This view demonstrates a very simple form. It is remarkable in how unremarkable it is.
@@ -21,6 +23,6 @@ function Session() {
       defaultValue={name}
       onChange={({target: { value } }) => dispatch(updateUsername(value))}
     />
-  </div>)
+  </View>)
 }
 export default Session

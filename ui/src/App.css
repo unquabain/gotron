@@ -10,19 +10,51 @@ div.App {
   padding: 20px;
   height: calc(100% - 80px);
   width: calc(100% - 80px);
+  border-radius: 4px;
+  box-shadow: 0 0 20px #444444;
 }
 
-nav .gotron-link {
+div.App nav {
+  margin-bottom: 2ex;
+}
+
+div.App nav .gotron-link {
   display: inline-block;
+  background-color: inherit;
+  box-shadow: none;
+  color: black;
+  margin: 1px;
+  margin-right: calc(2em + 1px);
+  position: static;
+}
+
+div.App nav .gotron-link:hover {
+  background-color: inherit;
+  box-shadow: none;
+  color: black;
+  border: 1px solid silver;
+  margin: 0;
   margin-right: 2em;
 }
 
-nav .gotron-link.active {
+div.App nav .gotron-link:active {
+  background-color: inherit;
+  box-shadow: none;
+  color: black;
+  font-weight: bold;
+  border: 1px solid gray;
+  margin: 0;
+  margin-right: 2em;
+}
+
+
+div.App nav .gotron-link.active {
   font-weight: bold;
 }
 
-nav .gotron-link.right {
+div.App nav .gotron-link.right {
   float: right;
+  margin-right: 0;
 }
 
 /* 

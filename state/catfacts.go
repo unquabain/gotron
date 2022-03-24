@@ -51,7 +51,7 @@ func (cf CatFact)Reduce(actionName action.ActionName, payload interface{}, dispa
   switch actionName {
   case action.CatFactFetch:
     go getCatFact(dispatcher)
-    return cf, false
+    return CatFact(`loading...`), true
   case action.CatFactError:
     return CatFact(fmt.Sprintf(`ERROR: %v`, payload)), true
   case action.CatFactSuccess:

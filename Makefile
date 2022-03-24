@@ -3,10 +3,12 @@ JSSRC=$(shell ls ui/src/*.js ui/src/**/*.js)
 CSSSRC=$(shell ls ui/src/*.css ui/src/**/*.css)
 GOSRC= \
 	action/action.go \
-	index.go \
 	app.go \
-	state/state.go \
+	generate.go \
+	index.go \
+	state/catfacts.go \
 	state/fortune.go \
+	state/state.go \
 	store/store.go
 
 bin/gotron: $(GOSRC) $(JSSRC) $(CSSSRC) assets/index.html

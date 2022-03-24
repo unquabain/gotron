@@ -15,7 +15,7 @@ import (
 
 type Store struct {
 	wv webview.WebView
-	state.State
+	State *state.AppState
   lock *sync.Mutex
 }
 
@@ -45,9 +45,9 @@ func (s *Store) pushState() error {
 func (s *Store) Dispatch(action action.Action) error {
   s.lock.Lock()
   defer s.lock.Unlock()
-	state, dirty := s.State.Reduce(action.Name, action.Payload, s)
+	st, dirty := s.State.Reduce(action.Name, action.Payload, s)
 	if dirty {
-		s.State = state
+		s.State = st.(*state.AppState)
 		return s.pushState()
 	}
 	return nil

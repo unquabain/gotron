@@ -8,7 +8,19 @@ import (
 	"github.com/webview/webview"
   "gotron/store"
 	"os"
+  "github.com/spf13/pflag"
 )
+
+type config struct {
+  Name string
+}
+
+var cfg config
+
+func init() {
+  pflag.StringVarP(&cfg.Name, `name`, `n`, `Trevor`, `The name of the user to start with`)
+  pflag.Parse()
+}
 
 func main() {
 	w := webview.New(true)
@@ -20,7 +32,8 @@ func main() {
 		fmt.Fprintf(os.Stderr, `could not generate inlined index file: %v`, err)
 		os.Exit(-1)
 	}
-	store.NewStore(w)
+  str := store.NewStore(w)
+  str.State.Session.Username = cfg.Name
 
 	w.Navigate(`data:text/html;base64,` + base64.StdEncoding.EncodeToString(index))
 	w.Run()
