@@ -10,26 +10,29 @@ import (
 	"gotron/state"
   "log"
   "os"
+  "sync"
 )
 
 type Store struct {
 	wv webview.WebView
 	state.State
+  lock *sync.Mutex
 }
 
 func NewStore(wv webview.WebView) *Store {
 	store := &Store{
 		State: state.NewAppState(),
 		wv:    wv,
+    lock: new(sync.Mutex),
 	}
   jsLogger := log.New(os.Stderr, `From JS: `, 0)
-	wv.Bind(`gotronDispatch`, store.dispatch)
+	wv.Bind(`gotronDispatch`, store.Dispatch)
 	wv.Bind(`gotronLog`, jsLogger.Println)
-	wv.Bind(`gotronPushState`, store.setState)
+	wv.Bind(`gotronPushState`, store.pushState)
 	return store
 }
 
-func (s *Store) setState() error {
+func (s *Store) pushState() error {
 	stateJson, err := json.Marshal(s.State)
 	if err != nil {
 		return fmt.Errorf(`could not marshal state: %w`, err)
@@ -39,11 +42,13 @@ func (s *Store) setState() error {
 	return nil
 }
 
-func (s *Store) dispatch(action action.Action) error {
-	state, dirty := s.State.Reduce(action.Name, action.Payload)
+func (s *Store) Dispatch(action action.Action) error {
+  s.lock.Lock()
+  defer s.lock.Unlock()
+	state, dirty := s.State.Reduce(action.Name, action.Payload, s)
 	if dirty {
 		s.State = state
-		return s.setState()
+		return s.pushState()
 	}
 	return nil
 }

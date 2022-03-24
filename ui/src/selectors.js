@@ -8,3 +8,4 @@ export const usernameSelector = createSelector(sessionSelector, session => sessi
 export const navPathSelector = createSelector(sessionSelector, session => session.navPath)
 
 export const fortuneSelector = createSelector(viewsSelector, views => views.fortune || '')
+export const catfactSelector = createSelector(viewsSelector, views => views.catfact || '')

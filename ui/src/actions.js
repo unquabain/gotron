@@ -6,6 +6,9 @@ const actions = {
   views: {
     fortune: {
       generate: () => ({ action: 'VIEWS.FORTUNE.GENERATE', payload: null })
+    },
+    catfact: {
+      fetch: () => ({action: 'VIEWS.CATFACT.FETCH', payload: null})
     }
   }
 }

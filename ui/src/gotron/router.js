@@ -15,18 +15,17 @@ export function Route(props) {
 export function Link(props) {
   const dispatch = useDispatch()
   const navPath = useSelector(navPathSelector)
-  const { path, children } = props
+  const { path, children, className } = props
   const { session: { navigate } } = actions
-  let { classNames } = props
-  if (!classNames) {
-    classNames = []
-  }
+  const classNames = [className]
+
+  const handleClick = () => dispatch(navigate(path))
   classNames.push('gotron-link')
   if (path === navPath) {
     classNames.push('active')
   }
 
   return (
-    <button type="button" className={classNames.join(' ')} href="#" onClick={()=>dispatch(navigate(path))}>{children}</button>
+    <button type="button" className={classNames.join(' ')} href="#" onClick={handleClick}>{children}</button>
   )
 }

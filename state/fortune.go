@@ -9,7 +9,7 @@ import (
 )
 
 type FortuneState string
-func (fs FortuneState) Reduce(actionName action.ActionName, payload interface{}) (State, bool) {
+func (fs FortuneState) Reduce(actionName action.ActionName, payload interface{}, _ action.Dispatcher) (State, bool) {
   switch actionName {
   case action.FortuneGenerate:
     cmd := exec.Command(`fortune`, `-l`)
