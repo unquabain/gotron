@@ -1,10 +1,10 @@
 SHELL:=/bin/zsh
-JSSRC=$(shell ls front-end/src/*.js front-end/src/**/*.js)
-CSSSRC=$(shell ls front-end/src/*.css front-end/src/**/*.css)
+JSSRC=$(shell ls ui/src/*.js ui/src/**/*.js)
+CSSSRC=$(shell ls ui/src/*.css ui/src/**/*.css)
 GOSRC= \
 	action/action.go \
-	fs.go \
-	gotron.go \
+	index.go \
+	app.go \
 	state/state.go \
 	state/fortune.go \
 	store/store.go
@@ -23,7 +23,7 @@ miniserve: bin/miniserver assets/index.html
 	bin/miniserver -root assets
 
 clean:
-	- rm -rf front-end/build/*
+	- rm -rf ui/build/*
 	- rm bin/*
 	- rm assets/js/*.js
 	- rm assets/css/*.css
